@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>ldk-demo</artifactId>
+        <groupId>com.lgou2w</groupId>
+        <version>0.0.1</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>demo-bukkit</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <ldk-bukkit-version>0.0.1-beta2</ldk-bukkit-version>
+        <bukkit.version>1.13.1-R0.1-SNAPSHOT</bukkit.version>
+    </properties>
+
+    <modules>
+        <module>item-backpack</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>bukkit-repo</id>
+            <url>http://repo.md-5.net/content/groups/public/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- ldk-bukkit-common -->
+        <dependency>
+            <groupId>com.github.lgou2w.ldk</groupId>
+            <artifactId>ldk-bukkit-common</artifactId>
+            <version>${ldk-bukkit-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Spigot Dependency -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>${bukkit.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Bukkit Dependency -->
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>${bukkit.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
