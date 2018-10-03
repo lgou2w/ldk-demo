@@ -15,12 +15,13 @@
     <packaging>pom</packaging>
 
     <properties>
-        <ldk-bukkit-version>0.0.1-beta2</ldk-bukkit-version>
+        <ldk-bukkit-version>0.1.1-rc</ldk-bukkit-version>
         <bukkit.version>1.13.1-R0.1-SNAPSHOT</bukkit.version>
     </properties>
 
     <modules>
         <module>item-backpack</module>
+        <module>item-repository</module>
     </modules>
 
     <repositories>
@@ -35,10 +36,17 @@
     </repositories>
 
     <dependencies>
-        <!-- ldk-bukkit-common -->
+        <!-- Kotlin Dependency -->
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- ldk-bukkit-plugin -->
         <dependency>
             <groupId>com.github.lgou2w.ldk</groupId>
-            <artifactId>ldk-bukkit-common</artifactId>
+            <artifactId>ldk-bukkit-plugin</artifactId>
             <version>${ldk-bukkit-version}</version>
             <scope>provided</scope>
         </dependency>
