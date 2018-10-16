@@ -38,7 +38,7 @@ class ItemRepositoryCommand(private val plugin: Main) : StandardCommand() {
     @Playable
     @Permission("irepo.add")
     fun add(player: Player, target: String) {
-        val stack = player.inventory.itemInMainHand
+        val stack = player.inventory.itemInHand
         if (stack.isAir()) {
             player.send("&c请手持一个物品再执行此命令.")
             return
@@ -46,7 +46,7 @@ class ItemRepositoryCommand(private val plugin: Main) : StandardCommand() {
         val repository = plugin.itemRepositories.getOrLoadRepository(target)
         repository.items.add(stack.clone())
 //        repository.save(plugin.itemRepositories)
-        player.inventory.itemInMainHand = null
+        player.inventory.itemInHand = null
         player.send("&a成功将物品存储到 &6$target&a 的物品仓库中.")
     }
 
