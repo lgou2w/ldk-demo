@@ -16,28 +16,32 @@
 
 package com.lgou2w.ldk.demo.itemrepository
 
-import com.lgou2w.ldk.bukkit.cmd.AdaptiveCompleteProxy
 import com.lgou2w.ldk.bukkit.cmd.Command
-import com.lgou2w.ldk.bukkit.cmd.CommandManager
 import com.lgou2w.ldk.bukkit.cmd.CommandRoot
+import com.lgou2w.ldk.bukkit.cmd.Initializable
+import com.lgou2w.ldk.bukkit.cmd.Parameter
 import com.lgou2w.ldk.bukkit.cmd.Permission
 import com.lgou2w.ldk.bukkit.cmd.Playable
-import com.lgou2w.ldk.bukkit.cmd.StandardCommand
+import com.lgou2w.ldk.bukkit.cmd.RegisteredCommand
 import com.lgou2w.ldk.bukkit.item.isAir
+import com.lgou2w.ldk.chat.toColor
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 @CommandRoot("irepo")
-class ItemRepositoryCommand(private val plugin: Main) : StandardCommand() {
+class ItemRepositoryCommand(private val plugin: Main) : Initializable {
 
-    override fun initialize(manager: CommandManager) {
-        command.completeProxy = AdaptiveCompleteProxy()
-        command.prefix = "[ItemRepository] "
+    private val PREFIX = "[ItemRepository] "
+
+    override fun initialize(command: RegisteredCommand) {
+        command.isAllowCompletion = true
+        command.prefix = PREFIX
     }
 
     @Command("add")
     @Playable
     @Permission("irepo.add")
-    fun add(player: Player, target: String) {
+    fun add(player: Player, @Parameter("target") target: String) {
         val stack = player.inventory.itemInHand
         if (stack.isAir()) {
             player.send("&c请手持一个物品再执行此命令.")
@@ -56,5 +60,9 @@ class ItemRepositoryCommand(private val plugin: Main) : StandardCommand() {
     fun view(player: Player) {
         val repository = plugin.itemRepositories.getOrLoadRepository(player.name)
         plugin.itemRepositories.openRepository(repository, player)
+    }
+
+    private fun CommandSender.send(message: String) {
+        sendMessage(PREFIX + message.toColor())
     }
 }

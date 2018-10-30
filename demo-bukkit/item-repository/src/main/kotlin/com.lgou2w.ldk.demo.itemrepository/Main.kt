@@ -34,6 +34,8 @@ class Main : PluginBase(), EventListener {
     override fun enable() {
         itemRepositories = ItemRepositories(this)
         commandManager = DefaultCommandManager(this)
+        commandManager.transforms.addDefaultTransforms()
+        commandManager.completes.addDefaultCompletes()
         commandManager.registerCommand(ItemRepositoryCommand(this))
     }
 
