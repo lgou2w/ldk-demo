@@ -15,8 +15,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <ldk-bukkit-version>0.1.6-beta3</ldk-bukkit-version>
-        <bukkit.version>1.13.1-R0.1-SNAPSHOT</bukkit.version>
+        <ldk.bukkit.version>0.1.6-rc3</ldk.bukkit.version>
+        <bukkit.version>1.13.2-R0.1-SNAPSHOT</bukkit.version>
     </properties>
 
     <modules>
@@ -48,7 +48,7 @@
         <dependency>
             <groupId>com.github.lgou2w.ldk</groupId>
             <artifactId>ldk-bukkit-plugin</artifactId>
-            <version>${ldk-bukkit-version}</version>
+            <version>${ldk.bukkit.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- Spigot Dependency -->

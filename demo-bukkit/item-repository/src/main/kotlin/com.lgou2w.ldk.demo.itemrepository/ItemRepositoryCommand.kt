@@ -22,6 +22,7 @@ import com.lgou2w.ldk.bukkit.cmd.Initializable
 import com.lgou2w.ldk.bukkit.cmd.Parameter
 import com.lgou2w.ldk.bukkit.cmd.Permission
 import com.lgou2w.ldk.bukkit.cmd.Playable
+import com.lgou2w.ldk.bukkit.cmd.Playername
 import com.lgou2w.ldk.bukkit.cmd.RegisteredCommand
 import com.lgou2w.ldk.bukkit.item.isAir
 import com.lgou2w.ldk.chat.toColor
@@ -41,7 +42,11 @@ class ItemRepositoryCommand(private val plugin: Main) : Initializable {
     @Command("add")
     @Playable
     @Permission("irepo.add")
-    fun add(player: Player, @Parameter("target") target: String) {
+    fun add(player: Player,
+            @Parameter("target")
+            @Playername
+            target: String
+    ) {
         val stack = player.inventory.itemInHand
         if (stack.isAir()) {
             player.send("&c请手持一个物品再执行此命令.")
