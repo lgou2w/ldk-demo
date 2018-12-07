@@ -24,6 +24,7 @@ import com.lgou2w.ldk.bukkit.cmd.Permission
 import com.lgou2w.ldk.bukkit.cmd.Playable
 import com.lgou2w.ldk.bukkit.cmd.Playername
 import com.lgou2w.ldk.bukkit.cmd.RegisteredCommand
+import com.lgou2w.ldk.bukkit.entity.itemInMainHand
 import com.lgou2w.ldk.bukkit.item.isAir
 import com.lgou2w.ldk.chat.toColor
 import org.bukkit.command.CommandSender
@@ -55,7 +56,7 @@ class ItemRepositoryCommand(private val plugin: Main) : Initializable {
         val repository = plugin.itemRepositories.getOrLoadRepository(target)
         repository.items.add(stack.clone())
 //        repository.save(plugin.itemRepositories)
-        player.inventory.itemInHand = null
+        player.itemInMainHand = null
         player.send("&a成功将物品存储到 &6$target&a 的物品仓库中.")
     }
 

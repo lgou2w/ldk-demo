@@ -19,9 +19,9 @@ package com.lgou2w.ldk.demo.exposed
 import com.lgou2w.ldk.bukkit.PluginBase
 import com.lgou2w.ldk.bukkit.coroutines.State
 import com.lgou2w.ldk.bukkit.event.EventListener
-import com.lgou2w.ldk.hikari.ConnectionFactory
-import com.lgou2w.ldk.hikari.MySQLConnectionFactory
-import com.lgou2w.ldk.hikari.buildConfiguration
+import com.lgou2w.ldk.sql.ConnectionFactory
+import com.lgou2w.ldk.sql.MySQLConnectionFactory
+import com.lgou2w.ldk.sql.buildConfiguration
 import org.bukkit.event.EventHandler
 import org.bukkit.event.server.ServerCommandEvent
 

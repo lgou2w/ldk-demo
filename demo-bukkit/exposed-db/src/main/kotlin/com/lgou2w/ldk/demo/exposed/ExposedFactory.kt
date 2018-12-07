@@ -17,7 +17,7 @@
 package com.lgou2w.ldk.demo.exposed
 
 import com.lgou2w.ldk.bukkit.coroutines.BukkitCoroutineFactory
-import com.lgou2w.ldk.hikari.ConnectionFactory
+import com.lgou2w.ldk.sql.ConnectionFactory
 import org.bukkit.plugin.Plugin
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.transaction
