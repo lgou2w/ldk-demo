@@ -21,7 +21,7 @@ import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
 
-object Demos : IntIdTable(columnName = "exposedDb") {
+object Demos : IntIdTable() {
     val name = varchar("name", 16).uniqueIndex()
     val value = integer("value").default(0)
 }
