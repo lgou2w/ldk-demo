@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <ldk.bukkit.version>0.1.7-rc</ldk.bukkit.version>
+        <ldk.bukkit.version>0.1.7-rc2</ldk.bukkit.version>
         <bukkit.version>1.13.2-R0.1-SNAPSHOT</bukkit.version>
     </properties>
 
