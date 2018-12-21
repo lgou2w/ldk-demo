@@ -41,6 +41,7 @@
     <modules>
         <module>demo-sql</module>
         <module>demo-bukkit</module>
+        <module>demo-fx</module>
     </modules>
 
     <repositories>
