@@ -16,6 +16,7 @@
 
     <modules>
         <module>fx-tornadofx</module>
+        <module>fx-fontawesomefx</module>
     </modules>
 
 </project>
