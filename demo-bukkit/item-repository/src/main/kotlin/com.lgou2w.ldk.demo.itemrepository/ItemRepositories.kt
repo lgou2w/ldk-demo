@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The lgou2w (lgou2w@hotmail.com)
+ * Copyright (C) 2018 The lgou2w <lgou2w@hotmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -112,7 +112,7 @@ class ItemRepositories(private val plugin: Main) {
                 val result = event.clicker.inventory.addItem(event.button.stack)
                 val button = event.button
                 val view = event.view
-                val source = getRepository(view.getPropertyAs<String>("repository").notNull()).notNull()
+                val source = getRepository(view.getPropertyAsNotNull("repository")).notNull()
                 val page = view.getPropertyAs<Int>("page").notNull()
                 val take = result.values.firstOrNull()
                 val takeIndex = (page - 1) * 45 + button.index

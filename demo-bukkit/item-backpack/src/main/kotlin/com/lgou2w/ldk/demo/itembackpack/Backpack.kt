@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The lgou2w (lgou2w@hotmail.com)
+ * Copyright (C) 2018 The lgou2w <lgou2w@hotmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import org.bukkit.entity.HumanEntity
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.InventoryHolder
 import org.bukkit.inventory.ItemStack
-import java.util.*
+import java.util.UUID
 
 class Backpack(
         val id: UUID

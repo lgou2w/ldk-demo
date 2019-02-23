@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The lgou2w (lgou2w@hotmail.com)
+ * Copyright (C) 2018 The lgou2w <lgou2w@hotmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +32,18 @@ import javafx.scene.layout.BorderStrokeStyle
 import javafx.scene.layout.FlowPane
 import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
-import tornadofx.*
-import java.util.*
+import tornadofx.App
+import tornadofx.FX
+import tornadofx.View
+import tornadofx.bind
+import tornadofx.flowpane
+import tornadofx.hbox
+import tornadofx.label
+import tornadofx.launch
+import tornadofx.scrollpane
+import tornadofx.stackpane
+import tornadofx.vbox
+import java.util.Collections
 
 fun main() {
     launch<MyApp>()
