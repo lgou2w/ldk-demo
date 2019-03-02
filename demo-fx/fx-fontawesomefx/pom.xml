@@ -18,14 +18,14 @@
         <dependency>
             <groupId>com.github.lgou2w.ldk</groupId>
             <artifactId>ldk-fx-tornadofx</artifactId>
-            <version>0.1.7-rc2</version>
+            <version>${ldk.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- ldk-fx-fontawesomefx -->
         <dependency>
             <groupId>com.github.lgou2w.ldk</groupId>
             <artifactId>ldk-fx-fontawesomefx</artifactId>
-            <version>0.1.7-rc2</version>
+            <version>${ldk.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

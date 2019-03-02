@@ -1,0 +1,7 @@
+msg:
+  hi: Hello world !
+a:
+  b:
+    c:
+      d: multi-level
+format: This is a '%s' message.

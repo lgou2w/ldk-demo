@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The lgou2w <lgou2w@hotmail.com>
+# Copyright (C) 2019 The lgou2w <lgou2w@hotmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-name: ldk-demo-exposed-db
-main: com.lgou2w.ldk.demo.exposed.ExposedDb
+name: ldk-demo-i18n-yaml
+main: com.lgou2w.ldk.demo.i18nyaml.I18nYaml
 version: ${project.version}
 api-version: 1.13
 depend: [LDK]
