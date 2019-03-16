@@ -17,6 +17,7 @@
 package com.lgou2w.ldk.demo.itembackpack
 
 import com.lgou2w.ldk.bukkit.PluginBase
+import com.lgou2w.ldk.bukkit.entity.itemInMainHand
 import com.lgou2w.ldk.bukkit.event.EventListener
 import com.lgou2w.ldk.chat.ChatColor
 import org.bukkit.command.Command
@@ -70,7 +71,7 @@ class Main : PluginBase(), EventListener {
         val backpack = Backpack.get(event.inventory)
         if (backpack != null) {
             val stack = Backpack.save(backpack, event.player.inventory.itemInMainHand)
-            event.player.inventory.itemInMainHand = stack
+            event.player.itemInMainHand = stack
         }
     }
 

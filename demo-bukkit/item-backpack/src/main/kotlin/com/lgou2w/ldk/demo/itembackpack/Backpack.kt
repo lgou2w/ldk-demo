@@ -20,6 +20,7 @@ import com.lgou2w.ldk.bukkit.item.ItemFactory
 import com.lgou2w.ldk.bukkit.item.builder
 import com.lgou2w.ldk.chat.ChatColor
 import com.lgou2w.ldk.chat.ChatSerializer
+import com.lgou2w.ldk.common.notNull
 import com.lgou2w.ldk.nbt.NBTTagCompound
 import com.lgou2w.ldk.nbt.ofCompound
 import com.lgou2w.ldk.nbt.ofList
@@ -76,7 +77,7 @@ class Backpack(
                     val count = item.getByte(KEY_ITEM_COUNT).toInt()
                     val type = item.getString(KEY_ITEM_ID)
                     val tag = item.getCompoundOrNull(KEY_ITEM_TAG)
-                    val itemStack = ItemStack(Material.matchMaterial(type), count)
+                    val itemStack = ItemStack(Material.matchMaterial(type).notNull(), count)
                     if (tag != null)
                         ItemFactory.writeTag(itemStack, tag)
                     backpack.inventory.setItem(slot, itemStack)
@@ -121,7 +122,7 @@ class Backpack(
         @JvmStatic
         fun isBackpack(stack: ItemStack?) : Boolean {
             return stack?.type == MATERIAL &&
-                   stack.itemMeta.displayName == NAME &&
+                   stack.itemMeta.notNull().displayName == NAME &&
                    ItemFactory.readTag(stack)?.containsKey(KEY) == true
         }
     }
