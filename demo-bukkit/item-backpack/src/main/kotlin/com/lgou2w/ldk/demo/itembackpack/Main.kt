@@ -17,12 +17,11 @@
 package com.lgou2w.ldk.demo.itembackpack
 
 import com.lgou2w.ldk.bukkit.PluginBase
+import com.lgou2w.ldk.bukkit.cmd.CommandManager
+import com.lgou2w.ldk.bukkit.cmd.DefaultCommandManager
+import com.lgou2w.ldk.bukkit.cmd.SimpleChineseCommandFeedback
 import com.lgou2w.ldk.bukkit.entity.itemInMainHand
 import com.lgou2w.ldk.bukkit.event.EventListener
-import com.lgou2w.ldk.chat.ChatColor
-import org.bukkit.command.Command
-import org.bukkit.command.CommandSender
-import org.bukkit.entity.Player
 import org.bukkit.event.Event
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
@@ -33,25 +32,24 @@ import org.bukkit.event.player.PlayerInteractEvent
 
 class Main : PluginBase(), EventListener {
 
+    private var commandManager : CommandManager? = null
+
     override fun load() {
     }
 
     override fun enable() {
+        commandManager = DefaultCommandManager(this).apply {
+            transforms.addDefaultTransforms()
+            completes.addDefaultCompletes()
+            globalFeedback = SimpleChineseCommandFeedback()
+            registerCommand(MainCommand())
+        }
         server.pluginManager.registerEvents(this, this)
     }
 
     override fun disable() {
-    }
-
-    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if (sender is Player && sender.hasPermission("item-backpack")) {
-            val backpack = Backpack.create()
-            sender.inventory.addItem(backpack)
-            sender.sendMessage(ChatColor.GREEN + "You get an item backpack.")
-        } else if (!sender.hasPermission("item-backpack")) {
-            sender.sendMessage(ChatColor.RED + "You do not have permission to use this command.")
-        }
-        return true
+        commandManager?.unregisterCommands()
+        commandManager = null
     }
 
     @EventHandler

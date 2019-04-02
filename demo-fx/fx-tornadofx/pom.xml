@@ -16,7 +16,7 @@
     <dependencies>
         <!-- ldk-fx-tornadofx -->
         <dependency>
-            <groupId>com.github.lgou2w.ldk</groupId>
+            <groupId>com.lgou2w</groupId>
             <artifactId>ldk-fx-tornadofx</artifactId>
             <version>${ldk.version}</version>
             <scope>compile</scope>

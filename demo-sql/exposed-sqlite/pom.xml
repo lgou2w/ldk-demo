@@ -13,33 +13,26 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>exposed-sqlite</artifactId>
 
-    <repositories>
-        <repository>
-            <id>exposed</id>
-            <url>https://dl.bintray.com/kotlin/exposed</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- ldk-coroutines -->
         <dependency>
-            <groupId>com.github.lgou2w.ldk</groupId>
+            <groupId>com.lgou2w</groupId>
             <artifactId>ldk-coroutines</artifactId>
             <version>${ldk.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- ldk-sql-sqlite -->
         <dependency>
-            <groupId>com.github.lgou2w.ldk</groupId>
+            <groupId>com.lgou2w</groupId>
             <artifactId>ldk-sql-sqlite</artifactId>
             <version>${ldk.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- exposed -->
         <dependency>
-            <groupId>org.jetbrains.exposed</groupId>
-            <artifactId>exposed</artifactId>
-            <version>0.11.2</version>
+            <groupId>com.lgou2w</groupId>
+            <artifactId>ldk-exposed</artifactId>
+            <version>${ldk.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- logback -->
