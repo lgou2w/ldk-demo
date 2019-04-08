@@ -23,6 +23,7 @@
         <module>item-repository</module>
         <module>exposed-db</module>
         <module>i18n-yaml</module>
+        <module>qrcode-map</module>
     </modules>
 
     <repositories>
