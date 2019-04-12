@@ -18,7 +18,7 @@ name: ldk-demo-exposed-db
 main: com.lgou2w.ldk.demo.exposed.ExposedDb
 version: ${project.version}
 api-version: 1.13
-depend: [LDK]
+softdepend: [LDK]
 author: lgou2w
 authors: [lgou2w]
 website: https://lgou2w.com
