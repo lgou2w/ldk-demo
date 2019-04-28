@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <bukkit.version>1.13.2-R0.1-SNAPSHOT</bukkit.version>
+        <bukkit.version>1.14-R0.1-SNAPSHOT</bukkit.version>
     </properties>
 
     <modules>
