@@ -19,7 +19,7 @@ package com.lgou2w.ldk.demo.itembackpack
 import com.lgou2w.ldk.bukkit.cmd.Command
 import com.lgou2w.ldk.bukkit.cmd.CommandRoot
 import com.lgou2w.ldk.bukkit.cmd.Permission
-import com.lgou2w.ldk.bukkit.cmd.Playable
+import com.lgou2w.ldk.bukkit.cmd.PlayerOnly
 import com.lgou2w.ldk.bukkit.cmd.StandardCommand
 import com.lgou2w.ldk.chat.ChatColor
 import org.bukkit.entity.Player
@@ -29,7 +29,7 @@ class MainCommand : StandardCommand() {
 
     @Command("backpack")
     @Permission("ldk.backpack")
-    @Playable
+    @PlayerOnly
     fun backpack(player: Player) {
         val backpack = Backpack.create()
         player.inventory.addItem(backpack)

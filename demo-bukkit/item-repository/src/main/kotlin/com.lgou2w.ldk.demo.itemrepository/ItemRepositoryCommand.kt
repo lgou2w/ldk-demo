@@ -21,7 +21,7 @@ import com.lgou2w.ldk.bukkit.cmd.CommandRoot
 import com.lgou2w.ldk.bukkit.cmd.Initializable
 import com.lgou2w.ldk.bukkit.cmd.Parameter
 import com.lgou2w.ldk.bukkit.cmd.Permission
-import com.lgou2w.ldk.bukkit.cmd.Playable
+import com.lgou2w.ldk.bukkit.cmd.PlayerOnly
 import com.lgou2w.ldk.bukkit.cmd.Playername
 import com.lgou2w.ldk.bukkit.cmd.RegisteredCommand
 import com.lgou2w.ldk.bukkit.entity.itemInMainHand
@@ -41,7 +41,7 @@ class ItemRepositoryCommand(private val plugin: Main) : Initializable {
     }
 
     @Command("add")
-    @Playable
+    @PlayerOnly
     @Permission("irepo.add")
     fun add(player: Player,
             @Parameter("target")
@@ -61,7 +61,7 @@ class ItemRepositoryCommand(private val plugin: Main) : Initializable {
     }
 
     @Command("view")
-    @Playable
+    @PlayerOnly
     @Permission("irepo.view")
     fun view(player: Player) {
         val repository = plugin.itemRepositories.getOrLoadRepository(player.name)

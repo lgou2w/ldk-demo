@@ -86,7 +86,7 @@ class ItemRepositories(private val plugin: Main) {
 
     fun openRepository(repository: ItemRepository, viewer: Player) {
         val maxPage = Math.ceil(repository.items.size.toDouble() / 45.0).toInt()
-        val root = PageableGui(GuiType.CHEST_6, "Item Repository" + if (maxPage > 1) " (1/$maxPage)" else "")
+        val root = PageableGui(plugin, GuiType.CHEST_6, "Item Repository" + if (maxPage > 1) " (1/$maxPage)" else "")
         var countPage = 1
         var current = root
         var slot = 0
@@ -97,7 +97,7 @@ class ItemRepositories(private val plugin: Main) {
                     addEnchantment(Enchantment.UNBREAKING, 1)
                     addFlag(ItemFlag.HIDE_ENCHANTS)
                 }.build()).onClicked = PageableGui.nextPage()
-                current = current.addPage(GuiType.CHEST_6, "Item Repository (${++countPage}/$maxPage)")
+                current = current.setPage(GuiType.CHEST_6, "Item Repository (${++countPage}/$maxPage)")
                 current.setButton(1, 6, Material.ARROW.builder(countPage - 1) {
                     setDisplayName(ChatSerializer.fromRaw("&6Previous Page"))
                     addEnchantment(Enchantment.UNBREAKING, 1)

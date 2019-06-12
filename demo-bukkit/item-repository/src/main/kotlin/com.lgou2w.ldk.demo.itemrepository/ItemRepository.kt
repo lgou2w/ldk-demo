@@ -20,9 +20,7 @@ import com.lgou2w.ldk.bukkit.item.ItemFactory
 import com.lgou2w.ldk.nbt.NBTReadable
 import com.lgou2w.ldk.nbt.NBTSavable
 import com.lgou2w.ldk.nbt.NBTTagCompound
-import com.lgou2w.ldk.nbt.ofCompound
 import com.lgou2w.ldk.nbt.ofList
-import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
 class ItemRepository(owner: String) : NBTReadable, NBTSavable {
@@ -36,10 +34,7 @@ class ItemRepository(owner: String) : NBTReadable, NBTSavable {
     override fun load(root: NBTTagCompound): NBTTagCompound {
         owner = root.getString("Owner")
         items = root.getList("Items").asElements<NBTTagCompound>().asSequence().map { item ->
-            val type = Material.matchMaterial(item.getString("Id"))
-            val count = item.getByte("Count").toInt()
-            val tag = item.getCompoundOrNull("tag")
-            ItemFactory.writeTag(ItemStack(type, count), tag)
+            ItemFactory.createItem(item)
         }.toMutableList()
         return root
     }
@@ -48,13 +43,7 @@ class ItemRepository(owner: String) : NBTReadable, NBTSavable {
         root.putString("Owner", owner)
         root.put(ofList("Items") {
             addCompound(*items.map { item ->
-                ofCompound {
-                    putString("Id", ItemFactory.materialType(item.type))
-                    putByte("Count", item.amount)
-                    val tag = ItemFactory.readTag(item)
-                    if (tag != null)
-                        put(tag)
-                }
+                ItemFactory.readItem(item)
             }.toTypedArray())
         })
         return root

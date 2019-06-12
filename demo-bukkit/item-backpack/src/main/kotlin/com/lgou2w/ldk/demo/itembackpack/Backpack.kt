@@ -54,9 +54,6 @@ class Backpack(
         const val KEY_ID = "id"
         const val KEY_ITEMS = "Items"
         const val KEY_ITEM_SLOT = "Slot"
-        const val KEY_ITEM_COUNT = "Count"
-        const val KEY_ITEM_ID = "id"
-        const val KEY_ITEM_TAG = "tag"
 
         @JvmStatic
         fun get(inventory: Inventory?) : Backpack? {
@@ -74,12 +71,7 @@ class Backpack(
             if (items != null && items.isNotEmpty()) {
                 items.asElements<NBTTagCompound>().forEach { item ->
                     val slot = item.getByte(KEY_ITEM_SLOT).toInt()
-                    val count = item.getByte(KEY_ITEM_COUNT).toInt()
-                    val type = item.getString(KEY_ITEM_ID)
-                    val tag = item.getCompoundOrNull(KEY_ITEM_TAG)
-                    val itemStack = ItemStack(Material.matchMaterial(type).notNull(), count)
-                    if (tag != null)
-                        ItemFactory.writeTag(itemStack, tag)
+                    val itemStack = ItemFactory.createItem(item)
                     backpack.inventory.setItem(slot, itemStack)
                 }
             }
@@ -97,15 +89,11 @@ class Backpack(
                 put(KEY_ITEMS, ofList {
                     for (index in 0 until backpack.inventory.size) {
                         val containerStack = backpack.inventory.getItem(index)
-                        if (containerStack != null && containerStack.type != Material.AIR)
-                            addCompound(ofCompound {
-                                putByte(KEY_ITEM_SLOT, index)
-                                putByte(KEY_ITEM_COUNT, containerStack.amount)
-                                putString(KEY_ITEM_ID, ItemFactory.materialType(containerStack.type))
-                                val tag = ItemFactory.readTag(containerStack)
-                                if (tag != null)
-                                    put(KEY_ITEM_TAG, tag)
-                            })
+                        if (containerStack != null && containerStack.type != Material.AIR) {
+                            val compound = ItemFactory.readItem(containerStack)
+                            compound.putByte(KEY_ITEM_SLOT, index)
+                            addCompound(compound)
+                        }
                     }
                 })
             }
